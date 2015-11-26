@@ -19,11 +19,22 @@
  *   Stefan Möding  <sm at kill-9.net>
  **/
 
+#include <ctype.h>     // isdigit()
+#include <errno.h>     // errno
+#include <limits.h>    // LONG_MAX
+#include <stdbool.h>   // _Bool
+#include <stdint.h>    // uint64_t
+#include <stdlib.h>    // strtoll()
+#include <string.h>    // memset()
+#include <sys/stat.h>  // stat()
+#include <sys/types.h> // stat()
+#include <unistd.h>    // getpagesize()
 
-#include "collectd.h"
-#include "common.h"
-#include "plugin.h"
-#include "utils_ignorelist.h"
+#include <collectd/core/config.h>
+#include <collectd/core/collectd.h>
+#include <collectd/core/common.h>
+#include <collectd/core/plugin.h>
+#include <collectd/core/utils_ignorelist.h>
 
 #if !KERNEL_LINUX
 # error "No applicable input method."

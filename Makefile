@@ -5,7 +5,7 @@ clean:
 
 install: all
 	cp beancounter.so /usr/lib/collectd/
-	cp beancounter-types.db /etc/collectd/types/
+	install beancounter-types.db -D --target-directory=/etc/collectd/types/
 
 beancounter.o: beancounter.c
 	gcc -c -Wextra -Wall -fpic -o $@ $^
